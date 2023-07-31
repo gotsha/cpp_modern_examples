@@ -23,7 +23,7 @@ namespace MoveSemantics {
         BigData(const BigData&); // copy c'tor
         BigData& operator= (const BigData&);  // copy assignment
 
-        // move semantics
+        // move semantics -> daurch vermeidet man die unnütze Kopie der copy semantics
         //BigData(BigData&&) noexcept;  // move c'tor
         //BigData& operator= (BigData&&) noexcept; // move assignment
 
@@ -214,9 +214,9 @@ namespace MoveSemantics {
 
     void test_02_demonstrate_move_ctor() {
 
-        std::vector<BigData> vec;
-        vec.push_back(BigData(10, 1));
-    }
+        std::vector<BigData> vec; //vec liegt auf dem Stack
+        vec.push_back(BigData(10, 1)); //dadurch wird ein temporäres Objekt angelegt; dieses wird nach Ablegen im Vektor auch wieder freigegeben -> destructor
+    } //hier wird nochmal der Destructor aufgerufen da vec auch nur temporär war
 
     void test_03_demonstrate_move_assignment() {
 
@@ -239,10 +239,12 @@ namespace MoveSemantics {
 void main_move_semantics()
 {
     using namespace MoveSemantics;
+    std::cout << "MoveSemantics" << std::endl;
     test_01_move_semantics();
     test_02_demonstrate_move_ctor();
     test_03_demonstrate_move_assignment();
     test_04_demonstrate_move_assignment();
+    std::cout << std::endl;
 }
 
 // =====================================================================================
