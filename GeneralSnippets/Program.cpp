@@ -25,7 +25,7 @@ int main()
         //main_array();
         //main_array_decay();
         //main_attributes();
-        //main_auto();
+        main_auto();
         //main_back_inserter();
         //main_bind();
         //main_casts();
@@ -69,7 +69,7 @@ int main()
         //main_range_based_for_loop();
         //main_reference_wrapper();
         //main_regular_expressions();
-        main_rvalue_lvalue();
+        //main_rvalue_lvalue();
         //main_sfinae();
         //main_sfinae_02();
         //main_shared_ptr();
