@@ -1,5 +1,5 @@
 # RValue - LValue
-```
+```cpp
 int n;
 int *ip;
 ip = &n;
@@ -56,7 +56,7 @@ in C++ liegt ein std::vector<int> vec; auf dem Stack, der räumt sich von allein 
 
 # auto
 Funktionen mit RÜckgabewert auto: Rückgabewerte in der Fkt müssen übereinstimmen
-```
+```cpp
 auto tueWas(bool flag, float f1, double d1) {
 	if (flag) {
 		return f2;
@@ -67,8 +67,8 @@ auto tueWas(bool flag, float f1, double d1) {
 }
 ```
 ist nicht valide.  
-was geht
-```
+Was geht
+```cpp
 template <typename T, typename U>
 auto tueWas(bool flag, T f1, U f2) -> decltype (f1 + v2) {
 	if (flag) {
@@ -86,7 +86,7 @@ void anwendung()
 }
 ```
 oder:
-```
+```cpp
 template <typename T, typename U>
 decltype ( std::declval<T>() + std::declval<U>() ) tueWas(bool flag, T f1, U f2) {
 	if (flag) {
@@ -105,3 +105,9 @@ void anwendung()
 ```
 
 declval gibt ohne declval keinen Sinn. 
+
+auto wird häufig mit Referenz-Keyword & verwendet um unbeabsichtigte Kopien zu vermeiden
+
+const Schlüsselwort wird verwendet wenn möglich da der Compiler solche Objekte effizienter übersetzt.  
+
+
